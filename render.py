@@ -99,10 +99,10 @@ def add_function_annotation(ax, x, y, text, line_pos='right', color='#0000ff',
     return ann
 
 def add_minmax():
-    min_temp = statistics['Minimum']
     max_temp = statistics['Maksimum']
+    min_temp = statistics['Minimum']
+    plt.axhline(y=max_temp, color='#fa7a55', linestyle=':', label='Maksimum (' + f"{statistics['Maksimum']:.2f}".replace('.', ',') + '°C)')
     plt.axhline(y=min_temp, color='#d11d05', linestyle=':', label='Minimum (' + f"{statistics['Minimum']:.2f}".replace('.', ',') + '°C)')
-    plt.axhline(y=max_temp, color='#fa7a55', linestyle=':', label='Minimum (' + f"{statistics['Maksimum']:.2f}".replace('.', ',') + '°C)')
 
 def print_statistics(stats):
     print("Temperaturstatistics:")
@@ -139,7 +139,7 @@ plt.figure(figsize=(12, 6))
 add_minmax()
 
 # --- Funktionplots ---
-focus = 3
+focus = 0
 
 # Plot temperaturdataen
 plt.plot(df['tid'], df['temperatur'], 
