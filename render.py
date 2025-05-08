@@ -15,7 +15,7 @@ def expLoose(t):
     return -0.06618+36.69*np.exp(-0.001866*t)
 
 def expStrict(t):
-    return 0.8+37.0*np.exp(-0.002033*t)
+    return 0.8+36.2*np.exp(-0.001984*t)
 
 def get_R2(func, t, T):
     values = func(t)
@@ -207,7 +207,7 @@ plt.plot(df['tid'], expStrict(df['tid']),
 # Tilføj annotering
 R2_expStrictFormatted = f"{R2_expStrict:.4f}".replace('.', ',')
 text = (r'$\mathrm{Stramt\;kurvefit:}$' + '\n' +
-        r'$T(t)=0,8+37,0\cdot e^{-0,002033\cdot t}$' + '\n' +
+        r'$T(t)=0,8+36,2\cdot e^{-0,001984\cdot t}$' + '\n' +
         f'$R^{{2}}={R2_expStrictFormatted}$')
 x_pos = df['tid'].iloc[mid_idx + 40]
 y_pos = hypothetical(df['tid']).iloc[mid_idx + 40]
