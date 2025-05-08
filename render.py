@@ -104,6 +104,16 @@ def add_minmax():
     plt.axhline(y=max_temp, color='#fa7a55', linestyle=':', label='Maksimum (' + f"{statistics['Maksimum']:.2f}".replace('.', ',') + '°C)')
     plt.axhline(y=min_temp, color='#d11d05', linestyle=':', label='Minimum (' + f"{statistics['Minimum']:.2f}".replace('.', ',') + '°C)')
 
+def add_hypothermia_stages():
+    stage_1 = 35
+    stage_2 = 32
+    stage_3 = 28
+    stage_4 = 24
+    plt.axhline(y=stage_1, color='#9e9e9e', linestyle=':', label='Stadie 1 (35-32°C)')
+    plt.axhline(y=stage_2, color='#8b8b8b', linestyle=':', label='Stadie 2 (<32-28°C)')
+    plt.axhline(y=stage_3, color='#777777', linestyle=':', label='Stadie 3 (<28-24°C)')
+    plt.axhline(y=stage_4, color='#646464', linestyle=':', label='Stadie 4 (<24°C)')
+
 def print_statistics(stats):
     print("Temperaturstatistics:")
     for key, value in stats.items():
@@ -134,6 +144,9 @@ print_statistics(statistics)
 
 # Opret diagrammet
 plt.figure(figsize=(12, 6))
+
+# Tilføj hypotermi faser
+# add_hypothermia_stages()
 
 # Tilføj min-max linjer
 add_minmax()
